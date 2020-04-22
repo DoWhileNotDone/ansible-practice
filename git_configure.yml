@@ -1,0 +1,38 @@
+---
+- name: Ensure git is installed
+  hosts: centos
+  tags: [ 'install-git' ]
+  tasks:
+  - package:  
+        name: git
+        state: latest
+    when: ansible_os_family == 'RedHat'
+    become: yes #Escalate Privileges
+
+- name: Ensure ./gitconfig copied from master.gitconfig
+  hosts: vagrant   
+  tasks:   
+  - name: first show no config in targets
+    git_config:
+        list_all: yes
+        scope: global
+    register: git_config_before
+
+  - name: ensure to show git config before with debug
+    debug: 
+        var: git_config_before
+
+  - name: Ensure gitconfig in global is correct
+    copy: 
+        src: "master.gitconfig" 
+        dest: "~/.gitconfig"
+
+  - name: Show added gitconfig in global
+    git_config:
+        list_all: yes
+        scope: global
+    register: git_config_after
+  
+  - name: ensure to show git config after with debug
+    debug: 
+        var: git_config_after

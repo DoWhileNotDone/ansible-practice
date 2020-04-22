@@ -1,0 +1,32 @@
+localhost ansible_connection=local
+centos7
+centos8
+ubuntu16
+ubuntu18
+
+[vagrant:children]
+centos
+ubuntu
+
+[macOS]
+localhost
+
+[ubuntu]
+ubuntu16 
+ubuntu18 
+
+[macOS:vars]
+ansible_python_interpreter=/usr/bin/python3
+
+[ubuntu:vars]
+ansible_python_interpreter=/usr/bin/python3
+
+[centos]
+centos7
+centos8
+
+[containers]
+python ansible_connection=docker
+
+[containers:vars]
+ansible_python_interpreter=/usr/bin/python3

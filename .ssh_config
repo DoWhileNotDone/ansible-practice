@@ -1,0 +1,51 @@
+Host *
+ IgnoreUnknown   UseKeychain,AddKeysToAgent
+ AddKeysToAgent yes
+ UseKeychain yes
+
+Host github.com
+ IdentityFile ~/.ssh/github_rsa
+
+Host centos7
+  HostName 127.0.0.1
+  User vagrant
+  Port 2201
+  UserKnownHostsFile /dev/null
+  StrictHostKeyChecking no
+  PasswordAuthentication no
+  IdentityFile /Users/davegillard/work/development/personal/ansible/pluralsight/.vagrant/machines/centos7/virtualbox/private_key
+  IdentitiesOnly yes
+  LogLevel FATAL
+
+Host centos8
+  HostName 127.0.0.1
+  User vagrant
+  Port 2202
+  UserKnownHostsFile /dev/null
+  StrictHostKeyChecking no
+  PasswordAuthentication no
+  IdentityFile /Users/davegillard/work/development/personal/ansible/pluralsight/.vagrant/machines/centos8/virtualbox/private_key
+  IdentitiesOnly yes
+  LogLevel FATAL
+
+Host ubuntu16
+  HostName 127.0.0.1
+  User vagrant
+  Port 2222
+  UserKnownHostsFile /dev/null
+  StrictHostKeyChecking no
+  PasswordAuthentication no
+  IdentityFile /Users/davegillard/work/development/personal/ansible/pluralsight/.vagrant/machines/ubuntu16/virtualbox/private_key
+  IdentitiesOnly yes
+  LogLevel FATAL
+
+Host ubuntu18
+  HostName 127.0.0.1
+  User vagrant
+  Port 2200
+  UserKnownHostsFile /dev/null
+  StrictHostKeyChecking no
+  PasswordAuthentication no
+  IdentityFile /Users/davegillard/work/development/personal/ansible/pluralsight/.vagrant/machines/ubuntu18/virtualbox/private_key
+  IdentitiesOnly yes
+  LogLevel FATAL

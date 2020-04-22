@@ -1,0 +1,19 @@
+---
+- name: Ensure gitconfig in global is correct
+  hosts: localhost
+  tasks:
+  - copy: 
+        src: "master.gitconfig" 
+        dest: "~/.gitconfig"
+- name: Ensure bat is installed
+  hosts: localhost   
+  tasks:       
+  - homebrew:
+        name: bat
+        state: latest
+- name: Ensure jq is installed        
+  hosts: localhost        
+  tasks:  
+  - homebrew:
+        name: jq
+        state: latest
